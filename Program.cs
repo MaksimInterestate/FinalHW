@@ -4,24 +4,42 @@
 
 System.Console.Write("Введите длину массива");
 int len = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите строку");
-string [] str = new string[len];
-for (int i = 0; i < len; i++)
-{
-    str[i] = Console.ReadLine();
-}
-System.Console.WriteLine("Введенный массив строк");
-System.Console.Write("[ ");
-for (int i = 0; i < len; i++)
-{
-    System.Console.Write(str[i] + ", ");
-}
-System.Console.WriteLine(" ]");
+string[] array = new string[len];
+GetArray(array);
+PrintArray(array);
 System.Console.WriteLine("Отсортированный массив ");
-System.Console.Write("[ ");
-for (int i = 0; i < len; i++)
-{
-    if(str[i].Length <=3) System.Console.Write(str[i]+ ", ");
+PrintArray2(array);
+
+
+void PrintArray2 (string[] array) //Вывод массива на экран после прохождения ветволения IF
+{   
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3 ) Console.Write(array[i] + ", ");       
+    }
+    Console.Write(" ]");
+    Console.WriteLine();
 }
-System.Console.WriteLine(" ]");
+
+string [] GetArray(string[] result) //Заполнение массива вручную
+{
+    for (int i = 0; i < result.Length; i++)
+    {
+        Console.WriteLine($"Введите элемент массива {i+1} : ");
+        string a = Console.ReadLine();
+        result[i] = a;
+    }
+    return result;
+}
+void PrintArray(string[] array) //Вывод массива на экран
+{   
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + ", ");
+    }
+    Console.Write(" ]");
+    Console.WriteLine();
+}
 
